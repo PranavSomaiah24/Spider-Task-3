@@ -1,0 +1,58 @@
+{{>navbar parameter=userID}}
+<div class="page-content">
+    <h1 class="welcome">Welcome !</h1>
+    <h2>Products For Sale:</h2>
+
+    <div class="product-card">
+        <div class="image"><img src="https://images-na.ssl-images-amazon.com/images/I/81KhQNvU-NL._AC_UL1500_.jpg"
+                alt="">
+        </div>
+        <div class="infos">
+            <h1 class="product-head">Gold Watch(DEMO)</h1>
+            <div class="price">
+                <h3>Rs. 3000</h3>
+            </div>
+            <div class="descrption">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio repudiandae esse
+                    accusamus, facilis eligendi laudantium culpa eum ad exercitationem hic illum maxime commodi
+                    quasi earum! Omnis unde quidem repellendus!</p>
+            </div>
+            <div class="prodowner">
+                <p>SELLER: ADMIN</p>
+            </div>
+            <div class="quantity">
+                <p>Stock Available: 3</p>
+            </div>
+            <div class="product-btns">
+                <button>ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+
+
+    {{#each products}}
+    {{#if this}}
+    <div class="product-card">
+        <div class="image"><img src="{{this.imageurl}}" alt="">
+        </div>
+        <div class="infos">
+            <h1 class="product-head">{{this.name}}</h1>
+            <div class="price">
+                <h3>Rs. {{this.price}}</h3>
+            </div>
+            <div class="descrption">
+                <p>{{this.description}}</p>
+            </div>
+            <div class="prodowner">
+                <p>SELLER: {{this.ownername}}</p>
+            </div>
+            <div class="quantity">
+                <p>Stock Available: {{this.quantity}}</p>
+            </div>
+            <div class="product-btns">
+                <a href="/add-to-cart/{{this.ownerid}}/{{this.id}}"><button>ADD TO CART</button></a>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    {{/each}}

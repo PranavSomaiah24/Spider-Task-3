@@ -1,0 +1,75 @@
+{{>navbarseller parameter=userID}}
+<div class="page-content">
+    <h1 class="welcome">Welcome {{userName}} !</h1>
+    <h2>Your products</h2>
+
+    <div class="product-card">
+        <div class="image"><img src="https://images-na.ssl-images-amazon.com/images/I/81KhQNvU-NL._AC_UL1500_.jpg"
+                alt="">
+        </div>
+        <div class="infos">
+            <h1 class="product-head">Gold Watch</h1>
+            <div class="price">
+                <h3>Rs. 3000</h3>
+            </div>
+            <div class="descrption">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio repudiandae esse
+                    accusamus, facilis eligendi laudantium culpa eum ad exercitationem hic illum maxime commodi
+                    quasi earum! Omnis unde quidem repellendus!</p>
+            </div>
+            <div class="quantity">
+                <p>Stock Available: 3</p>
+            </div>
+            <div class="product-btns">
+                <button>UPDATE DETAILS</button>
+            </div>
+        </div>
+    </div>
+
+    {{#if products}}
+    {{#each products}}
+    <div class="product-card">
+        <div class="image"><img src="{{this.imageurl}}" alt="">
+        </div>
+        <div class="infos">
+            <h1 class="product-head">{{this.name}}</h1>
+            <div class="price">
+                <h3>Rs. {{this.price}}</h3>
+            </div>
+            <div class="descrption">
+                <p>{{this.description}}</p>
+            </div>
+            <div class="quantity">
+                <p>Stock Available: {{this.quantity}}</p>
+            </div>
+            <div class="product-btns">
+                <a href="/seller/update/{{this.owner}}/{{this.id}}"><button>UPDATE DETAILS</button></a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+    <div class="add"><a href="/seller/add/{{userID}}"><img src="/plus.png" id="addpost"></a></div>
+
+
+    {{!-- <h2>Your Accepted Events</h2>
+        <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Success card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+        </div> --}}
+    {{!-- {{#if accepted}}
+    {{#each accepted}}
+    <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+        <div class="card-header">{{this.title}}</div>
+        <div class="card-body">
+            <h4 class="card-title">13th April</h4>
+            <p class="card-text">{{this.content}}</p>
+        </div>
+    </div>
+    {{/each}}
+    {{/if}} --}}
+</div>

@@ -1,0 +1,22 @@
+{{>navbar parameter=userID}}
+
+{{#if products}}
+{{#each products}}
+<div class="product-card">
+    <div class="image"><img src="{{this.imageurl}}" alt="">
+    </div>
+    <div class="infos">
+        <h1 class="product-head">{{this.name}}</h1>
+        <div class="price">
+            <h3>Rs. {{this.price}}</h3>
+        </div>
+        <div class="descrption">
+            <p>{{this.description}}</p>
+        </div>
+        <div class="prodowner">
+            <p>SELLER: {{this.ownername}}</p>
+        </div>
+    </div>
+</div>
+{{/each}}
+{{/if}}
